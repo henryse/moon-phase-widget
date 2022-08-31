@@ -30,7 +30,7 @@
     width: 40%;
     margin: 20px 0;
 }
-  
+
 .mph-widget .moon-phase-ico img {
     width: 100%;
 }
@@ -81,9 +81,14 @@ h1 {
 }
 
 @keyframes mph-page-loader {
-    0% { transform: translate(-50%,-50%) rotate(0deg); }
-    100% { transform: translate(-50%,-50%) rotate(360deg); }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
+
 .mph-page-loader div {
     position: absolute;
     width: 120px;
@@ -92,11 +97,13 @@ h1 {
     border-top-color: transparent;
     border-radius: 50%;
 }
+
 .mph-page-loader div {
     animation: mph-page-loader 1s linear infinite;
     top: 50%;
     left: 50%;
 }
+
 .mph-page-loader {
     width: 100%;
     height: 300px;

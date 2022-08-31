@@ -9,10 +9,10 @@ const arrowSvg = `
 	<polygon points="242.5,299.791 135.589,193.228 114.411,214.476 242.5,342.148 370.589,214.476 349.411,193.228"/>
 </g>
 </svg>
-`
+`;
 
-export default function (moonPhaseData, geoData) {
-    return `
+export default function(moonPhaseData, geoData) {
+  return `
 <div class="mph-widget">
     <div class="mph-row">
         <div class="mph-col">

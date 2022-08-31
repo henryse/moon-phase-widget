@@ -1,8 +1,8 @@
-import getGeoData from './actions/getGeoData';
-import renderWidgetHtml from './actions/renderWidgetHtml';
+import getGeoData from "./actions/getGeoData";
+import renderWidgetHtml from "./actions/renderWidgetHtml";
 
 class MoonPhaseWidget {
-  constructor(containerId = 'moon-phase-widget', 
+  constructor(containerId = "moon-phase-widget",
               getGeoDataFn = getGeoData, renderFn = renderWidgetHtml) {
     this.containerId = containerId;
     this.el = document.getElementById(containerId);
@@ -14,29 +14,27 @@ class MoonPhaseWidget {
   }
 
   async mount() {
-     const geoData = await this.getGeoDataFn();
-     const moonPhaseData = await this.getMoonPhaseData(geoData.latitude, geoData.longitude);
+    const geoData = await this.getGeoDataFn();
+    const moonPhaseData = await this.getMoonPhaseData(geoData.latitude, geoData.longitude);
 
-     this.el.innerHTML = this.renderFn(moonPhaseData, geoData);
-     this.loadBackgroundColor()
+    this.el.innerHTML = this.renderFn(moonPhaseData, geoData);
+    this.loadBackgroundColor();
   }
 
   async getMoonPhaseData(latitude, longitude) {
-    const apiUrl = DEV_URL ? 
-    'http://localhost:8090/api/public/moon-phase':
-    'https://moonorganizer.com/api/public/moon-phase' 
+    const apiUrl = DEV_URL ?
+      "http://localhost:8090/api/public/moon-phase" :
+      "https://moonorganizer.com/api/public/moon-phase";
 
     const res = await fetch(apiUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        "Content-Type": "application/json;charset=utf-8"
       },
-      body: JSON.stringify({latitude, longitude, date: new Date()})
+      body: JSON.stringify({ latitude, longitude, date: new Date() })
     });
 
-    const moonPhaseData = await res.json();
-
-    return moonPhaseData;
+    return await res.json();
   }
 
   loadBackgroundColor() {

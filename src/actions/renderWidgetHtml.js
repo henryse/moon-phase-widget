@@ -31,8 +31,8 @@ timezone: "Europe/Kiev"
 
 */
 
-export default function (moonPhaseData, geoData) {
-    return `
+export default function(moonPhaseData, geoData) {
+  return `
 <div class="mph-widget">
     <div class="mph-widget-body">
         <div class="mph-col">
